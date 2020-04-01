@@ -11,7 +11,7 @@ name: Build System Image
 on: 
   push:
     branches:
-      - master
+      - mido
   release:
     types: [published]
 
