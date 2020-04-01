@@ -59,7 +59,7 @@ jobs:
         repo init -u https://github.com/Halium/android -b halium-7.1 --depth=1
         repo sync -j8 -c --no-clone-bundle --no-tags
         git clone https://github.com/ubports-mido/android_device_xiaomi_mido.git $ANDROID_ROOT/device/xiaomi/mido -b dev --depth=1
-        git clone https://github.com/ubports-mido/proprietary_vendor_xiaomi.git $ANDROID_ROOT/vendor/xiaomi --depth=1
+        git clone https://github.com/ubports-mido/proprietary_vendor_xiaomi.git $ANDROID_ROOT/vendor/xiaomi -b dev --depth=1
         git clone https://github.com/ubports-mido/android_kernel_xiaomi_msm8953.git $ANDROID_ROOT/kernel/xiaomi/msm8953 -b dev --depth=1
     
     - name: Build HAL
