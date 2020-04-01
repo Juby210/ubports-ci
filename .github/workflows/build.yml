@@ -72,16 +72,16 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: halium-boot image
-        path: /home/runner/work/halium/out/target/product/santoni/halium-boot.img
+        path: /home/runner/work/halium/out/target/product/mido/halium-boot.img
 
     - name : Upload recovery image
       uses: actions/upload-artifact@master
       with:
         name: Recovery image
-        path: /home/runner/work/halium/out/target/product/santoni/recovery.img
+        path: /home/runner/work/halium/out/target/product/mido/recovery.img
 
     - name : Upload system image
       uses: actions/upload-artifact@master
       with:
         name: System image
-        path: /home/runner/work/halium/out/target/product/santoni/system.img
+        path: /home/runner/work/halium/out/target/product/mido/system.img
