@@ -22,7 +22,7 @@ jobs:
 
     env:
       VENDOR: xiaomi
-      DEVICE: santoni
+      DEVICE: mido
       ANDROID_ROOT: /home/runner/work/halium/
 
     steps:
@@ -48,7 +48,7 @@ jobs:
         mkdir -p ~/bin
         wget 'https://storage.googleapis.com/git-repo-downloads/repo' -P ~/bin
         chmod +x ~/bin/repo
-        git config --global user.name "UBports Redmi 4X CI"
+        git config --global user.name "UBports Redmi Note 4 CI"
         git config --global user.email "thisemaildoesnotexist@exist.com"
 
     - name: Downloading source code
@@ -57,9 +57,10 @@ jobs:
         mkdir -p $ANDROID_ROOT
         cd $ANDROID_ROOT
         repo init -u https://github.com/Halium/android -b halium-7.1 --depth=1
-        mkdir -p $ANDROID_ROOT/.repo/local_manifests
-        wget https://raw.githubusercontent.com/ubports-santoni/halium-devices/halium-7.1/manifests/"$VENDOR"_"$DEVICE".xml -O $ANDROID_ROOT/.repo/local_manifests/$DEVICE.xml
         repo sync -j8 -c --no-clone-bundle --no-tags
+        git clone https://github.com/ubports-mido/android_device_xiaomi_mido.git $ANDROID_ROOT/device/xiaomi/mido -b dev --depth=1
+        git clone https://github.com/ubports-mido/proprietary_vendor_xiaomi.git $ANDROID_ROOT/vendor/xiaomi --depth=1
+        git clone https://github.com/ubports-mido/android_kernel_xiaomi_msm8953.git $ANDROID_ROOT/kernel/xiaomi/msm8953 -b dev --depth=1
     
     - name: Build HAL
       run: |
